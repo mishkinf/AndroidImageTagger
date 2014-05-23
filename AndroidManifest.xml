@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.example.ImageTagger"
+          package="com.mishkin.ImageTagger"
           android:versionCode="1"
           android:versionName="1.0">
   <uses-sdk android:minSdkVersion="18"/>
   <application android:label="@string/app_name" android:icon="@drawable/ic_launcher">
-    <activity android:name="com.example.ImageTagger.ImageTagActivity"
+    <activity android:name="com.mishkin.ImageTagger.ImageTagActivity"
               android:screenOrientation="portrait"
               android:label="@string/app_name">
       <intent-filter>

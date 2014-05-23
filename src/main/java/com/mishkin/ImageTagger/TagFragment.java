@@ -1,4 +1,4 @@
-package com.example.ImageTagger;
+package com.mishkin.ImageTagger;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -10,13 +10,12 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 public class TagFragment extends Fragment {
-	ImageView closeImageView, magGlassImageView, mainImageView;
+	ImageView closeImageView, mainImageView;
 	FrameLayout.LayoutParams mLayoutParams;
 	Object metaData;
 	TagCallbackHandler mHandler;
 
 	public TagFragment() {
-
 	}
 
 	public TagFragment(TagCallbackHandler handler, Object metaData) {
@@ -36,8 +35,7 @@ public class TagFragment extends Fragment {
 		mainImageView.setOnTouchListener(new View.OnTouchListener() {
 			@Override
 			public boolean onTouch(View v, MotionEvent event) {
-				switch(event.getAction())
-				{
+				switch (event.getAction()) {
 				case MotionEvent.ACTION_DOWN:
 					mHandler.onTagEvent(self, "ClickDown", null);
 					return false;
@@ -60,14 +58,6 @@ public class TagFragment extends Fragment {
 			@Override
 			public void onClick(View v) {
 				mHandler.onTagEvent(self, "CloseClicked", null);
-			}
-		});
-
-		magGlassImageView = (ImageView)v.findViewById(R.id.mag_glass_image_view);
-		magGlassImageView.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				mHandler.onTagEvent(self, "MagGlassClicked", null);
 			}
 		});
 
