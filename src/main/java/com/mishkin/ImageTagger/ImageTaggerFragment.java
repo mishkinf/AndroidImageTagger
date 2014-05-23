@@ -116,12 +116,7 @@ public class ImageTaggerFragment extends Fragment implements TagCallbackHandler,
 		switch(event.getAction()) {
 		case MotionEvent.ACTION_MOVE:
 			if(selectedTagFragment != null) {
-				FrameLayout.LayoutParams lp = selectedTagFragment.getLayoutParams();
-				FrameLayout.LayoutParams newLp = new FrameLayout.LayoutParams(lp);
-				newLp.setMargins((int)event.getX() - mTagWidth, (int)event.getY() - mTagHeight, 0, 0);
-
-				selectedTagFragment.getView().setLayoutParams(newLp);
-				v.invalidate();
+				positionTag(selectedTagFragment, (int)event.getX(), (int)event.getY());
 			}
 			break;
 		case MotionEvent.ACTION_UP:
