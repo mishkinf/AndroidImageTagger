@@ -10,6 +10,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 public class TagFragment extends Fragment {
+	private static final String TAG = TagFragment.class.getSimpleName();
 	ImageView closeImageView, mainImageView;
 	FrameLayout.LayoutParams mLayoutParams;
 	Object metaData;
@@ -64,11 +65,11 @@ public class TagFragment extends Fragment {
 		return v;
 	}
 
-	public void setLayoutParams(FrameLayout.LayoutParams layoutParams) {
+	public void setPosition(FrameLayout.LayoutParams layoutParams) {
 		this.mLayoutParams = layoutParams;
 	}
 
-	public FrameLayout.LayoutParams getLayoutParams() {
+	public FrameLayout.LayoutParams getPosition() {
 		return mLayoutParams;
 	}
 

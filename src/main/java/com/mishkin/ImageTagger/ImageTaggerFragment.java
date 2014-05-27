@@ -12,6 +12,7 @@ import android.widget.FrameLayout;
 import android.widget.Toast;
 
 public class ImageTaggerFragment extends Fragment implements TagCallbackHandler, View.OnTouchListener {
+	private static final String TAG = ImageTaggerFragment.class.getSimpleName();
 	boolean fingerDown = false;
 	TagFragment selectedTagFragment = null;
 	int mTagContainer, mTagEnterAnimation, mTagExitAnimation, mTagSelectedAnimation, mTagDeselectedAnimation;
@@ -85,15 +86,20 @@ public class ImageTaggerFragment extends Fragment implements TagCallbackHandler,
 			.addToBackStack(null)
 			.commit();
 
-		positionTag(tag, x, y);
+		moveTagTo(tag, x, y);
 
 		fingerDown = false;
 	}
 
-	private void positionTag(TagFragment tag, int x, int y) {
+	private void moveTagTo(TagFragment tag, Integer x, Integer y) {
 		FrameLayout.LayoutParams lp = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT);
 		lp.setMargins(x - mTagWidth, y - mTagHeight, 0, 0);
-		tag.setLayoutParams(lp);
+		tag.setPosition(lp);
+
+		if(tag.getView() != null) {
+			tag.getView().setLayoutParams(lp);
+			getView().invalidate();
+		}
 	}
 
 	@Override
@@ -116,7 +122,7 @@ public class ImageTaggerFragment extends Fragment implements TagCallbackHandler,
 		switch(event.getAction()) {
 		case MotionEvent.ACTION_MOVE:
 			if(selectedTagFragment != null) {
-				positionTag(selectedTagFragment, (int)event.getX(), (int)event.getY());
+				moveTagTo(selectedTagFragment, (int)event.getX(), (int)event.getY());
 			}
 			break;
 		case MotionEvent.ACTION_UP:
