@@ -11,35 +11,66 @@ import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ImageTaggerFragment extends Fragment implements TagCallbackHandler, View.OnTouchListener {
 	private static final String TAG = ImageTaggerFragment.class.getSimpleName();
+	private static final String TAG_CONTAINER = "tag_container";
+	private static final String TAG_FRAGMENTS = "tag_fragments";
+	public static int Instances = 0;
+	public int instanceNum = -1;
 	boolean fingerDown = false;
 	TagFragment selectedTagFragment = null;
-	int mTagContainer, mTagEnterAnimation, mTagExitAnimation, mTagSelectedAnimation, mTagDeselectedAnimation;
+	int mTagContainer = R.layout.fragment_tagger;
+	int mTagEnterAnimation = R.anim.zoom_in;
+	int mTagExitAnimation = R.anim.zoom_out;
+	int mTagSelectedAnimation = R.anim.zoom_large;
+	int mTagDeselectedAnimation = R.anim.zoom_normal;
 	int mTagWidth = 140, mTagHeight = 140;
+	List<TagFragment> mTagFragmentList = new ArrayList<TagFragment>();
 
-	public ImageTaggerFragment(int tagContainer) {
-		mTagContainer = tagContainer;
+	public ImageTaggerFragment() {
+		selectedTagFragment = null;
+		mTagContainer = R.layout.fragment_tagger;
 		mTagEnterAnimation = R.anim.zoom_in;
 		mTagExitAnimation = R.anim.zoom_out;
-		mTagDeselectedAnimation = R.anim.zoom_normal;
 		mTagSelectedAnimation = R.anim.zoom_large;
+		mTagDeselectedAnimation = R.anim.zoom_normal;
+		mTagWidth = mTagHeight = 140;
+		instanceNum = Instances++;
 	}
 
-	public ImageTaggerFragment(int tagContainer, int tagEnterAnimation, int tagExitAnimation) {
-		mTagContainer = tagContainer;
-		mTagEnterAnimation = tagEnterAnimation;
-		mTagExitAnimation = tagExitAnimation;
-		mTagDeselectedAnimation = R.anim.zoom_normal;
-		mTagSelectedAnimation = R.anim.zoom_large;
+	public static ImageTaggerFragment newInstance(int tagContainer) {
+		ImageTaggerFragment taggerFragment = new ImageTaggerFragment();
+		taggerFragment.setTagContainer(tagContainer);
+		return taggerFragment;
 	}
 
-	public ImageTaggerFragment(int tagContainer, int tagEnterAnimation, int tagExitAnimation, int tagSelectedAnimation, int tagDeselectedAnimation) {
-		mTagContainer = tagContainer;
-		mTagEnterAnimation = tagEnterAnimation;
-		mTagExitAnimation = tagExitAnimation;
-		mTagSelectedAnimation = tagSelectedAnimation;
-		mTagDeselectedAnimation = tagDeselectedAnimation;
+	public static ImageTaggerFragment newInstance(int tagContainer, int tagEnterAnimation, int tagExitAnimation) {
+		ImageTaggerFragment taggerFragment = new ImageTaggerFragment();
+		taggerFragment.setTagContainer(tagContainer);
+		taggerFragment.setTagEnterAnimation(tagEnterAnimation);
+		taggerFragment.setTagExitAnimation(tagExitAnimation);
+		return taggerFragment;
+
+	}
+
+	public static ImageTaggerFragment newInstance(int tagContainer, int tagEnterAnimation, int tagExitAnimation, int tagSelectedAnimation, int tagDeselectedAnimation) {
+		ImageTaggerFragment taggerFragment = new ImageTaggerFragment();
+		taggerFragment.setTagContainer(tagContainer);
+		taggerFragment.setTagEnterAnimation(tagEnterAnimation);
+		taggerFragment.setTagExitAnimation(tagExitAnimation);
+		taggerFragment.setTagSelectedAnimation(tagSelectedAnimation);
+		taggerFragment.setTagDeselectedAnimation(tagDeselectedAnimation);
+		return taggerFragment;
+	}
+
+	@Override
+	public void onCreate (Bundle savedInstanceState)
+	{
+		super.onCreate (savedInstanceState);
+		setRetainInstance(true);
 	}
 
 	@Override
@@ -48,10 +79,49 @@ public class ImageTaggerFragment extends Fragment implements TagCallbackHandler,
 
 		v.setOnTouchListener(this);
 
+		for(TagFragment t : mTagFragmentList) {
+			t.setHandler(this);
+		}
+
+		v.bringToFront();
 		return v;
 	}
 
+//	@Override
+//	public void onSaveInstanceState(Bundle outState) {
+//		super.onSaveInstanceState(outState);
+////		outState.putInt(TAG_CONTAINER, mTagContainer);
+////		outState.putParcelableArrayList(TAG_FRAGMENTS, (ArrayList<? extends android.os.Parcelable>)mTagFragmentList);
+//	}
+//
+//	@Override
+//	public void onViewStateRestored(Bundle savedInstanceState) {
+//		super.onViewStateRestored(savedInstanceState);
+//
+////		if(savedInstanceState == null)
+////			return;
+////
+////		if(savedInstanceState.containsKey(TAG_CONTAINER))
+////			mTagContainer = savedInstanceState.getInt(TAG_CONTAINER);
+////
+////		if(savedInstanceState.containsKey(TAG_FRAGMENTS)) {
+////			mTagFragmentList.clear();
+////			mTagFragmentList = savedInstanceState.getParcelableArrayList(TAG_FRAGMENTS);
+////
+////			for (TagFragment t : mTagFragmentList) {
+////				moveTagTo(t, t.getPosition().leftMargin, t.getPosition().topMargin);
+////				t.setHandler(this);
+////				if(t.getView() != null) {
+////					t.getView().bringToFront();
+////					t.getView().invalidate();
+////				}
+////			}
+////		}
+//
+//	}
+
 	public void removeTag(TagFragment tag) {
+		mTagFragmentList.remove(tag);
 		getFragmentManager().beginTransaction()
 			.setCustomAnimations(R.anim.zoom_in, R.anim.zoom_out)
 			.remove(tag)
@@ -76,8 +146,8 @@ public class ImageTaggerFragment extends Fragment implements TagCallbackHandler,
 		}
 	}
 
-	private void addNewTagFragment(int x, int y) {
-		TagFragment tag = new TagFragment(this, null);
+	public void addTagFragment(TagFragment tag, int x, int y) {
+		tag.setHandler(this);
 
 		getFragmentManager()
 			.beginTransaction()
@@ -85,6 +155,8 @@ public class ImageTaggerFragment extends Fragment implements TagCallbackHandler,
 			.add(R.id.tagger_fragment_container, tag)
 			.addToBackStack(null)
 			.commit();
+
+		mTagFragmentList.add(tag);
 
 		moveTagTo(tag, x, y);
 
@@ -98,6 +170,7 @@ public class ImageTaggerFragment extends Fragment implements TagCallbackHandler,
 
 		if(tag.getView() != null) {
 			tag.getView().setLayoutParams(lp);
+			tag.getView().bringToFront();
 			getView().invalidate();
 		}
 	}
@@ -131,11 +204,52 @@ public class ImageTaggerFragment extends Fragment implements TagCallbackHandler,
 				selectedTagFragment.getView().startAnimation(zoomToNormalAnimation);
 				selectedTagFragment = null;
 			} else {
-				addNewTagFragment((int)event.getX(), (int)event.getY());
+				TagFragment tag = TagFragment.newInstance(this, null);
+				addTagFragment(tag, (int)event.getX(), (int)event.getY());
 			}
 			break;
 		}
 
 		return true;
+	}
+
+	public int getTagEnterAnimation() {
+		return mTagEnterAnimation;
+	}
+
+	public void setTagEnterAnimation(int tagEnterAnimation) {
+		mTagEnterAnimation = tagEnterAnimation;
+	}
+
+	public int getTagExitAnimation() {
+		return mTagExitAnimation;
+	}
+
+	public void setTagExitAnimation(int tagExitAnimation) {
+		mTagExitAnimation = tagExitAnimation;
+	}
+
+	public int getTagSelectedAnimation() {
+		return mTagSelectedAnimation;
+	}
+
+	public void setTagSelectedAnimation(int tagSelectedAnimation) {
+		mTagSelectedAnimation = tagSelectedAnimation;
+	}
+
+	public int getTagDeselectedAnimation() {
+		return mTagDeselectedAnimation;
+	}
+
+	public void setTagDeselectedAnimation(int tagDeselectedAnimation) {
+		mTagDeselectedAnimation = tagDeselectedAnimation;
+	}
+
+	public void setTagContainer(int tagContainer) {
+		mTagContainer = tagContainer;
+	}
+
+	public int getTagContainer() {
+		return mTagContainer;
 	}
 }
