@@ -17,12 +17,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ImageTaggerFragment extends Fragment implements TagCallbackHandler, View.OnTouchListener {
-	private static final String TAG = ImageTaggerFragment.class.getSimpleName();
-	private static final String TAG_CONTAINER = "tag_container";
-	private static final String TAG_FRAGMENTS = "tag_fragments";
-	public static int Instances = 0;
-	public int instanceNum = -1;
-	boolean fingerDown = false;
 	TagFragment selectedTagFragment = null;
 	int mTagContainer = R.layout.fragment_tagger;
 	int mTagEnterAnimation = R.anim.zoom_in;
@@ -41,7 +35,6 @@ public class ImageTaggerFragment extends Fragment implements TagCallbackHandler,
 		mTagSelectedAnimation = R.anim.zoom_large;
 		mTagDeselectedAnimation = R.anim.zoom_normal;
 		mTagWidth = mTagHeight = 140;
-		instanceNum = Instances++;
 	}
 
 	public static ImageTaggerFragment newInstance(int tagContainer) {
@@ -100,8 +93,8 @@ public class ImageTaggerFragment extends Fragment implements TagCallbackHandler,
 				for(TagFragment tag : mTagFragmentList) {
 					double x, y;
 
-					x = tag.percentWidth * mainImage.getWidth();
-					y = tag.percentHeight * mainImage.getHeight();
+					x = tag.getPercentWidth() * mainImage.getWidth();
+					y = tag.getPercentHeight() * mainImage.getHeight();
 
 					moveTagTo(tag, (int)x, (int)y, true);
 					tag.getView().measure(2*mTagWidth, 2*mTagHeight);
@@ -122,7 +115,6 @@ public class ImageTaggerFragment extends Fragment implements TagCallbackHandler,
 	}
 
 	public void deselectTag(TagFragment tag) {
-		fingerDown = false;
 		selectedTagFragment = null;
 		Animation zoomToLargeAnimation = AnimationUtils.loadAnimation(getActivity().getApplicationContext(), mTagDeselectedAnimation);
 		tag.getView().startAnimation(zoomToLargeAnimation);
@@ -134,7 +126,6 @@ public class ImageTaggerFragment extends Fragment implements TagCallbackHandler,
 			tag.getView().startAnimation(zoomToLargeAnimation);
 			tag.getView().bringToFront();
 			selectedTagFragment = tag;
-			fingerDown = true;
 		}
 	}
 
@@ -151,8 +142,6 @@ public class ImageTaggerFragment extends Fragment implements TagCallbackHandler,
 		mTagFragmentList.add(tag);
 
 		moveTagTo(tag, x, y, false);
-
-		fingerDown = false;
 	}
 
 	@Override
@@ -170,8 +159,8 @@ public class ImageTaggerFragment extends Fragment implements TagCallbackHandler,
 			double percentOfWidthFromLeft = (double)x / (double)mainImage.getWidth();
 			double percentOfHeightFromTop = (double)y / (double)mainImage.getHeight();
 
-			tag.percentWidth = percentOfWidthFromLeft;
-			tag.percentHeight = percentOfHeightFromTop;
+			tag.setPercentWidth(percentOfWidthFromLeft);
+			tag.setPercentHeight(percentOfHeightFromTop);
 		}
 
 		if(tag.getView() != null) {

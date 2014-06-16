@@ -1,8 +1,6 @@
 package com.mishkin.ImageTagger;
 
 import android.os.Bundle;
-import android.os.Parcel;
-import android.os.Parcelable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -12,14 +10,13 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class TagFragment extends Fragment implements Parcelable, View.OnTouchListener {
-	private static final String TAG = TagFragment.class.getSimpleName();
+public class TagFragment extends Fragment implements View.OnTouchListener {
 	ImageView closeImageView, mainImageView;
 	FrameLayout.LayoutParams mLayoutParams;
 	Object mData;
 	TagCallbackHandler mHandler;
-	public double percentWidth = 0.0;
-	public double percentHeight = 0.0;
+	double percentWidth = 0.0;
+	double percentHeight = 0.0;
 
 	public TagFragment() {
 		mData = null;
@@ -101,22 +98,28 @@ public class TagFragment extends Fragment implements Parcelable, View.OnTouchLis
 		return this.mData;
 	}
 
-	@Override
-	public int describeContents() {
-		return 0;
-	}
-
-	@Override
-	public void writeToParcel(Parcel dest, int flags) {
-
-	}
-
 	public TagCallbackHandler getHandler() {
 		return mHandler;
 	}
 
 	public void setHandler(TagCallbackHandler handler) {
 		mHandler = handler;
+	}
+
+	public double getPercentWidth() {
+		return percentWidth;
+	}
+
+	public void setPercentWidth(double percentWidth) {
+		this.percentWidth = percentWidth;
+	}
+
+	public double getPercentHeight() {
+		return percentHeight;
+	}
+
+	public void setPercentHeight(double percentHeight) {
+		this.percentHeight = percentHeight;
 	}
 
 }

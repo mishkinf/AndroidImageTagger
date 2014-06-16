@@ -108,12 +108,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="TagFragment.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/mishkin/ImageTagger/TagFragment.java">
+      <file leaf-file-name="ImageTaggerFragment.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/mishkin/ImageTagger/ImageTaggerFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.9063232" vertical-offset="0" max-vertical-offset="1746">
-              <caret line="55" column="28" selection-start-line="55" selection-start-column="28" selection-end-line="55" selection-end-column="28" />
-              <folding />
+            <state vertical-scroll-proportion="0.66442955" vertical-offset="0" max-vertical-offset="1980">
+              <caret line="25" column="40" selection-start-line="25" selection-start-column="40" selection-end-line="25" selection-end-column="40" />
+              <folding>
+                <element signature="method#newInstance#0;class#ImageTaggerFragment#0" expanded="false" />
+                <element signature="method#newInstance#1;class#ImageTaggerFragment#0" expanded="false" />
+                <element signature="method#newInstance#2;class#ImageTaggerFragment#0" expanded="false" />
+                <element signature="method#onCreate#0;class#ImageTaggerFragment#0" expanded="false" />
+                <element signature="method#onCreateView#0;class#ImageTaggerFragment#0" expanded="false" />
+                <element signature="method#removeTag#0;class#ImageTaggerFragment#0" expanded="false" />
+                <element signature="method#moveTagTo#0;class#ImageTaggerFragment#0" expanded="false" />
+                <element signature="method#onTagEvent#0;class#ImageTaggerFragment#0" expanded="false" />
+                <element signature="method#onTouch#0;class#ImageTaggerFragment#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -159,8 +169,8 @@
         <option value="$PROJECT_DIR$/src/main/java/com/mishkin/ImageTagger/ImageTagActivity.java" />
         <option value="$PROJECT_DIR$/res/layout/main.xml" />
         <option value="$PROJECT_DIR$/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mishkin/ImageTagger/TagFragment.java" />
         <option value="$PROJECT_DIR$/res/layout/fragment_tagger.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mishkin/ImageTagger/TagFragment.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mishkin/ImageTagger/ImageTaggerFragment.java" />
       </list>
     </option>
@@ -212,8 +222,8 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="22" />
-    <option name="width" value="2560" />
-    <option name="height" value="1537" />
+    <option name="width" value="1440" />
+    <option name="height" value="837" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -256,96 +266,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="ImageTagger" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ImageTagger" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ImageTagger" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ImageTagger" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ImageTagger" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ImageTagger" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ImageTagger" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ImageTagger" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ImageTagger" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ImageTagger" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ImageTagger" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ImageTagger" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="layout" />
               <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -670,12 +590,12 @@
       <workItem from="1401225307850" duration="10886000" />
       <workItem from="1401817363239" duration="17548000" />
       <workItem from="1402688228605" duration="14358000" />
-      <workItem from="1402943690170" duration="4638000" />
+      <workItem from="1402943690170" duration="7372000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="105434000" />
+    <option name="totallyTimeSpent" value="108168000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -698,8 +618,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="2560" height="1537" extended-state="0" />
-    <editor active="false" />
+    <frame x="0" y="22" width="1440" height="837" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -717,14 +637,14 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32699084" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.37843552" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.5285118" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980973" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5937053" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13383637" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3262861" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24105866" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32545203" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -790,8 +710,15 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="84" max-vertical-offset="2322">
           <caret line="85" column="27" selection-start-line="85" selection-start-column="27" selection-end-line="85" selection-end-column="27" />
           <folding>
-            <element signature="e#7987#7988#0" expanded="true" />
-            <element signature="e#8022#8023#0" expanded="true" />
+            <element signature="method#newInstance#0;class#ImageTaggerFragment#0" expanded="false" />
+            <element signature="method#newInstance#1;class#ImageTaggerFragment#0" expanded="false" />
+            <element signature="method#newInstance#2;class#ImageTaggerFragment#0" expanded="false" />
+            <element signature="method#onCreate#0;class#ImageTaggerFragment#0" expanded="false" />
+            <element signature="method#onCreateView#0;class#ImageTaggerFragment#0" expanded="false" />
+            <element signature="method#removeTag#0;class#ImageTaggerFragment#0" expanded="false" />
+            <element signature="method#moveTagTo#0;class#ImageTaggerFragment#0" expanded="false" />
+            <element signature="method#onTagEvent#0;class#ImageTaggerFragment#0" expanded="false" />
+            <element signature="method#onTouch#0;class#ImageTaggerFragment#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -808,10 +735,10 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="558" max-vertical-offset="1602">
           <caret line="31" column="39" selection-start-line="31" selection-start-column="39" selection-end-line="31" selection-end-column="39" />
           <folding>
-            <element signature="e#1787#1923#0" expanded="false" />
-            <element signature="e#1918#1919#0" expanded="false" />
-            <element signature="e#2503#2504#0" expanded="false" />
-            <element signature="e#2543#2544#0" expanded="false" />
+            <element signature="e#1635#1771#0" expanded="false" />
+            <element signature="e#1766#1767#0" expanded="false" />
+            <element signature="e#2351#2352#0" expanded="false" />
+            <element signature="e#2391#2392#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -851,10 +778,10 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="342" max-vertical-offset="1764">
           <caret line="19" column="3" selection-start-line="19" selection-start-column="3" selection-end-line="19" selection-end-column="3" />
           <folding>
-            <element signature="e#1787#1923#0" expanded="false" />
-            <element signature="e#1918#1919#0" expanded="false" />
-            <element signature="e#2503#2504#0" expanded="false" />
-            <element signature="e#2543#2544#0" expanded="false" />
+            <element signature="e#1635#1771#0" expanded="false" />
+            <element signature="e#1766#1767#0" expanded="false" />
+            <element signature="e#2351#2352#0" expanded="false" />
+            <element signature="e#2391#2392#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -864,8 +791,15 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="1377" max-vertical-offset="2268">
           <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
           <folding>
-            <element signature="e#7987#7988#0" expanded="true" />
-            <element signature="e#8022#8023#0" expanded="true" />
+            <element signature="method#newInstance#0;class#ImageTaggerFragment#0" expanded="false" />
+            <element signature="method#newInstance#1;class#ImageTaggerFragment#0" expanded="false" />
+            <element signature="method#newInstance#2;class#ImageTaggerFragment#0" expanded="false" />
+            <element signature="method#onCreate#0;class#ImageTaggerFragment#0" expanded="false" />
+            <element signature="method#onCreateView#0;class#ImageTaggerFragment#0" expanded="false" />
+            <element signature="method#removeTag#0;class#ImageTaggerFragment#0" expanded="false" />
+            <element signature="method#moveTagTo#0;class#ImageTaggerFragment#0" expanded="false" />
+            <element signature="method#onTagEvent#0;class#ImageTaggerFragment#0" expanded="false" />
+            <element signature="method#onTouch#0;class#ImageTaggerFragment#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -894,10 +828,10 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="342" max-vertical-offset="1764">
           <caret line="19" column="3" selection-start-line="19" selection-start-column="3" selection-end-line="19" selection-end-column="3" />
           <folding>
-            <element signature="e#1787#1923#0" expanded="false" />
-            <element signature="e#1918#1919#0" expanded="false" />
-            <element signature="e#2503#2504#0" expanded="false" />
-            <element signature="e#2543#2544#0" expanded="false" />
+            <element signature="e#1635#1771#0" expanded="false" />
+            <element signature="e#1766#1767#0" expanded="false" />
+            <element signature="e#2351#2352#0" expanded="false" />
+            <element signature="e#2391#2392#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -907,8 +841,15 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="460" max-vertical-offset="2754">
           <caret line="43" column="40" selection-start-line="43" selection-start-column="40" selection-end-line="43" selection-end-column="40" />
           <folding>
-            <element signature="e#7987#7988#0" expanded="true" />
-            <element signature="e#8022#8023#0" expanded="true" />
+            <element signature="method#newInstance#0;class#ImageTaggerFragment#0" expanded="false" />
+            <element signature="method#newInstance#1;class#ImageTaggerFragment#0" expanded="false" />
+            <element signature="method#newInstance#2;class#ImageTaggerFragment#0" expanded="false" />
+            <element signature="method#onCreate#0;class#ImageTaggerFragment#0" expanded="false" />
+            <element signature="method#onCreateView#0;class#ImageTaggerFragment#0" expanded="false" />
+            <element signature="method#removeTag#0;class#ImageTaggerFragment#0" expanded="false" />
+            <element signature="method#moveTagTo#0;class#ImageTaggerFragment#0" expanded="false" />
+            <element signature="method#onTagEvent#0;class#ImageTaggerFragment#0" expanded="false" />
+            <element signature="method#onTouch#0;class#ImageTaggerFragment#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1037,6 +978,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.32323232" vertical-offset="0" max-vertical-offset="891">
           <caret line="16" column="6" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1051,6 +993,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.32323232" vertical-offset="0" max-vertical-offset="891">
           <caret line="16" column="6" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1066,6 +1009,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.468039" vertical-offset="0" max-vertical-offset="923">
           <caret line="24" column="22" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1181,6 +1125,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="432">
           <caret line="14" column="27" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1192,22 +1137,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mishkin/ImageTagger/ImageTaggerFragment.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mishkin/ImageTagger/TagFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4529116" vertical-offset="0" max-vertical-offset="4104">
-          <caret line="49" column="26" selection-start-line="49" selection-start-column="26" selection-end-line="49" selection-end-column="26" />
+        <state vertical-scroll-proportion="0.15629523" vertical-offset="0" max-vertical-offset="936">
+          <caret line="14" column="41" selection-start-line="14" selection-start-column="41" selection-end-line="14" selection-end-column="41" />
           <folding>
-            <element signature="e#7987#7988#0" expanded="true" />
-            <element signature="e#8022#8023#0" expanded="true" />
+            <element signature="method#newInstance#0;class#TagFragment#0" expanded="false" />
+            <element signature="method#onCreate#0;class#TagFragment#0" expanded="false" />
+            <element signature="method#onCreateView#0;class#TagFragment#0" expanded="false" />
+            <element signature="method#onTouch#0;class#TagFragment#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mishkin/ImageTagger/TagFragment.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mishkin/ImageTagger/ImageTaggerFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9063232" vertical-offset="0" max-vertical-offset="1746">
-          <caret line="55" column="28" selection-start-line="55" selection-start-column="28" selection-end-line="55" selection-end-column="28" />
-          <folding />
+        <state vertical-scroll-proportion="0.66442955" vertical-offset="0" max-vertical-offset="1980">
+          <caret line="25" column="40" selection-start-line="25" selection-start-column="40" selection-end-line="25" selection-end-column="40" />
+          <folding>
+            <element signature="method#newInstance#0;class#ImageTaggerFragment#0" expanded="false" />
+            <element signature="method#newInstance#1;class#ImageTaggerFragment#0" expanded="false" />
+            <element signature="method#newInstance#2;class#ImageTaggerFragment#0" expanded="false" />
+            <element signature="method#onCreate#0;class#ImageTaggerFragment#0" expanded="false" />
+            <element signature="method#onCreateView#0;class#ImageTaggerFragment#0" expanded="false" />
+            <element signature="method#removeTag#0;class#ImageTaggerFragment#0" expanded="false" />
+            <element signature="method#moveTagTo#0;class#ImageTaggerFragment#0" expanded="false" />
+            <element signature="method#onTagEvent#0;class#ImageTaggerFragment#0" expanded="false" />
+            <element signature="method#onTouch#0;class#ImageTaggerFragment#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
