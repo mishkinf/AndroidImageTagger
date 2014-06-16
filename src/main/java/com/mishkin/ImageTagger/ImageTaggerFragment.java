@@ -1,5 +1,6 @@
 package com.mishkin.ImageTagger;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -9,6 +10,7 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -27,8 +29,9 @@ public class ImageTaggerFragment extends Fragment implements TagCallbackHandler,
 	int mTagExitAnimation = R.anim.zoom_out;
 	int mTagSelectedAnimation = R.anim.zoom_large;
 	int mTagDeselectedAnimation = R.anim.zoom_normal;
-	int mTagWidth = 140, mTagHeight = 140;
+	int mTagWidth = 142, mTagHeight = 142;
 	List<TagFragment> mTagFragmentList = new ArrayList<TagFragment>();
+	ImageView mainImage;
 
 	public ImageTaggerFragment() {
 		selectedTagFragment = null;
@@ -56,6 +59,11 @@ public class ImageTaggerFragment extends Fragment implements TagCallbackHandler,
 
 	}
 
+	@Override
+	public void onViewStateRestored(Bundle savedInstanceState) {
+		super.onViewStateRestored(savedInstanceState);
+	}
+
 	public static ImageTaggerFragment newInstance(int tagContainer, int tagEnterAnimation, int tagExitAnimation, int tagSelectedAnimation, int tagDeselectedAnimation) {
 		ImageTaggerFragment taggerFragment = new ImageTaggerFragment();
 		taggerFragment.setTagContainer(tagContainer);
@@ -77,6 +85,7 @@ public class ImageTaggerFragment extends Fragment implements TagCallbackHandler,
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, final Bundle savedInstanceState) {
 		View v = inflater.inflate(mTagContainer, container, false);
 
+		mainImage = (ImageView)v.findViewById(R.id.image_view);
 		v.setOnTouchListener(this);
 
 		for(TagFragment t : mTagFragmentList) {
@@ -84,41 +93,24 @@ public class ImageTaggerFragment extends Fragment implements TagCallbackHandler,
 		}
 
 		v.bringToFront();
+
+		mainImage.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
+			@Override
+			public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
+				for(TagFragment tag : mTagFragmentList) {
+					double x, y;
+
+					x = tag.percentWidth * mainImage.getWidth();
+					y = tag.percentHeight * mainImage.getHeight();
+
+					moveTagTo(tag, (int)x, (int)y, true);
+					tag.getView().measure(2*mTagWidth, 2*mTagHeight);
+				}
+			}
+		});
+
 		return v;
 	}
-
-//	@Override
-//	public void onSaveInstanceState(Bundle outState) {
-//		super.onSaveInstanceState(outState);
-////		outState.putInt(TAG_CONTAINER, mTagContainer);
-////		outState.putParcelableArrayList(TAG_FRAGMENTS, (ArrayList<? extends android.os.Parcelable>)mTagFragmentList);
-//	}
-//
-//	@Override
-//	public void onViewStateRestored(Bundle savedInstanceState) {
-//		super.onViewStateRestored(savedInstanceState);
-//
-////		if(savedInstanceState == null)
-////			return;
-////
-////		if(savedInstanceState.containsKey(TAG_CONTAINER))
-////			mTagContainer = savedInstanceState.getInt(TAG_CONTAINER);
-////
-////		if(savedInstanceState.containsKey(TAG_FRAGMENTS)) {
-////			mTagFragmentList.clear();
-////			mTagFragmentList = savedInstanceState.getParcelableArrayList(TAG_FRAGMENTS);
-////
-////			for (TagFragment t : mTagFragmentList) {
-////				moveTagTo(t, t.getPosition().leftMargin, t.getPosition().topMargin);
-////				t.setHandler(this);
-////				if(t.getView() != null) {
-////					t.getView().bringToFront();
-////					t.getView().invalidate();
-////				}
-////			}
-////		}
-//
-//	}
 
 	public void removeTag(TagFragment tag) {
 		mTagFragmentList.remove(tag);
@@ -158,15 +150,29 @@ public class ImageTaggerFragment extends Fragment implements TagCallbackHandler,
 
 		mTagFragmentList.add(tag);
 
-		moveTagTo(tag, x, y);
+		moveTagTo(tag, x, y, false);
 
 		fingerDown = false;
 	}
 
-	private void moveTagTo(TagFragment tag, Integer x, Integer y) {
+	@Override
+	public void onConfigurationChanged(Configuration newConfig) {
+		super.onConfigurationChanged(newConfig);
+	}
+
+	private void moveTagTo(TagFragment tag, Integer x, Integer y, boolean skipRecalcOfPercentages) {
 		FrameLayout.LayoutParams lp = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT);
 		lp.setMargins(x - mTagWidth, y - mTagHeight, 0, 0);
+		lp.setLayoutDirection(1);
 		tag.setPosition(lp);
+
+		if(!skipRecalcOfPercentages) {
+			double percentOfWidthFromLeft = (double)x / (double)mainImage.getWidth();
+			double percentOfHeightFromTop = (double)y / (double)mainImage.getHeight();
+
+			tag.percentWidth = percentOfWidthFromLeft;
+			tag.percentHeight = percentOfHeightFromTop;
+		}
 
 		if(tag.getView() != null) {
 			tag.getView().setLayoutParams(lp);
@@ -195,7 +201,7 @@ public class ImageTaggerFragment extends Fragment implements TagCallbackHandler,
 		switch(event.getAction()) {
 		case MotionEvent.ACTION_MOVE:
 			if(selectedTagFragment != null) {
-				moveTagTo(selectedTagFragment, (int)event.getX(), (int)event.getY());
+				moveTagTo(selectedTagFragment, (int)event.getX(), (int)event.getY(), false);
 			}
 			break;
 		case MotionEvent.ACTION_UP:

@@ -18,6 +18,8 @@ public class TagFragment extends Fragment implements Parcelable, View.OnTouchLis
 	FrameLayout.LayoutParams mLayoutParams;
 	Object mData;
 	TagCallbackHandler mHandler;
+	public double percentWidth = 0.0;
+	public double percentHeight = 0.0;
 
 	public TagFragment() {
 		mData = null;
@@ -36,25 +38,14 @@ public class TagFragment extends Fragment implements Parcelable, View.OnTouchLis
 		setRetainInstance(true);
 	}
 
-//	@Override
-//	public void onSaveInstanceState(Bundle outState) {
-//		super.onSaveInstanceState(outState);
-////		outState.putInt(TAG_CONTAINER, mTagContainer);
-////		outState.putParcelableArrayList(TAG_FRAGMENTS, (ArrayList<? extends android.os.Parcelable>)mTagFragmentList);
-//	}
-//
-//	@Override
-//	public void onViewStateRestored(Bundle savedInstanceState) {
-//		super.onViewStateRestored(savedInstanceState);
-//	}
-
-		@Override
+	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View v = inflater.inflate(R.layout.fragment_tag, container, false);
 		TextView tagTextView;
 
-		if(mLayoutParams != null)
+		if(mLayoutParams != null) {
 			v.setLayoutParams(mLayoutParams);
+		}
 
 		final TagFragment self = this;
 		mainImageView = (ImageView)v.findViewById(R.id.main_image_view);
@@ -74,6 +65,7 @@ public class TagFragment extends Fragment implements Parcelable, View.OnTouchLis
 
 		return v;
 	}
+
 	@Override
 	public boolean onTouch(View v, MotionEvent event) {
 		switch (event.getAction()) {
