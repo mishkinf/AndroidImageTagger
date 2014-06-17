@@ -1,17 +1,17 @@
 # AndroidImageTagger
-#### This code is an example of tagging images in Android.
+##### This code is an example of tagging images in Android.
 
-## Simple setup
+#### Simple setup
 ```java
 ImageTaggerFragment taggerFragment = new ImageTaggerFragment(R.layout.fragment_tagger);
 ````
 
-## Define your own set of animations
+#### Define your own set of animations
 ```java
 ImageTaggerFragment taggerFragment = new ImageTaggerFragment(R.layout.fragment_tagger, R.anim.zoom_in, R.anim.zoom_out, R.anim.zoom_large, R.anim.zoom_normal);
 ```
 
-## Custom tag event handling
+#### Custom tag event handling
 ```java
 taggerFragment = ImageTaggerFragment.newInstance(R.layout.fragment_tagger);
 {
@@ -22,13 +22,13 @@ taggerFragment = ImageTaggerFragment.newInstance(R.layout.fragment_tagger);
 };
 ```
 
-## Adding tags
+#### Adding tags
 ```java
 // Method signature: addTagFragment(int xPos, int yPos, Object metaData)
 taggerFragment.addTagFragment(100, 100, "One");
 ```
 
-## Adding your fragments using android.support.v4.
+#### Adding your fragments using android.support.v4.
 ```java
 getSupportFragmentManager().beginTransaction()
   .add(R.id.fragment_container, taggerFragment, "imageTaggerFragment")
