@@ -11,7 +11,6 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -115,18 +114,21 @@ public class ImageTaggerFragment extends Fragment implements TagCallbackHandler,
 	}
 
 	public void deselectTag(TagFragment tag) {
+		tag.setSelected(false);
 		selectedTagFragment = null;
 		Animation zoomToLargeAnimation = AnimationUtils.loadAnimation(getActivity().getApplicationContext(), mTagDeselectedAnimation);
 		tag.getView().startAnimation(zoomToLargeAnimation);
 	}
 
 	public void selectTag(TagFragment tag) {
-		if(selectedTagFragment == null) {
-			Animation zoomToLargeAnimation = AnimationUtils.loadAnimation(getActivity().getApplicationContext(), mTagSelectedAnimation);
-			tag.getView().startAnimation(zoomToLargeAnimation);
-			tag.getView().bringToFront();
-			selectedTagFragment = tag;
-		}
+		for(TagFragment t : this.mTagFragmentList)
+			t.setSelected(false);
+
+		Animation zoomToLargeAnimation = AnimationUtils.loadAnimation(getActivity().getApplicationContext(), mTagSelectedAnimation);
+		tag.getView().startAnimation(zoomToLargeAnimation);
+		tag.getView().bringToFront();
+		selectedTagFragment = tag;
+		tag.setSelected(true);
 	}
 
 	public void addTagFragment(TagFragment tag, int x, int y) {
@@ -172,8 +174,6 @@ public class ImageTaggerFragment extends Fragment implements TagCallbackHandler,
 
 	@Override
 	public boolean onTagEvent(TagFragment tag, String tagEvent, Object data) {
-		Toast.makeText(getActivity().getApplicationContext(), "Tag Event: " + tagEvent, Toast.LENGTH_SHORT).show();
-
 		if( tagEvent.equals("CloseClicked")) {
 			removeTag(tag);
 		} else if (tagEvent.equals("ClickDown")) {
@@ -183,6 +183,13 @@ public class ImageTaggerFragment extends Fragment implements TagCallbackHandler,
 		}
 
 		return true;
+	}
+
+	@Override
+	public void onTagCreated(TagFragment tag) {
+		for(TagFragment t : this.mTagFragmentList)
+			if(t != tag)
+				t.setSelected(false);
 	}
 
 	@Override

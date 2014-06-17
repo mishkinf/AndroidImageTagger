@@ -13,10 +13,11 @@ import android.widget.TextView;
 public class TagFragment extends Fragment implements View.OnTouchListener {
 	ImageView closeImageView, mainImageView;
 	FrameLayout.LayoutParams mLayoutParams;
-	Object mData;
 	TagCallbackHandler mHandler;
-	double percentWidth = 0.0;
-	double percentHeight = 0.0;
+	double mPercentWidth = 0.0;
+	double mPercentHeight = 0.0;
+	boolean mSelected;
+	Object mData;
 
 	public TagFragment() {
 		mData = null;
@@ -60,7 +61,24 @@ public class TagFragment extends Fragment implements View.OnTouchListener {
 			}
 		});
 
+		setSelected(true);
+		mHandler.onTagCreated(this);
+
 		return v;
+	}
+
+	public void setSelected(boolean selected) {
+		mSelected = selected;
+
+		if(mSelected) {
+			closeImageView.setVisibility(View.VISIBLE);
+		} else {
+			closeImageView.setVisibility(View.GONE);
+		}
+	}
+
+	public boolean getSelect() {
+		return mSelected;
 	}
 
 	@Override
@@ -107,19 +125,19 @@ public class TagFragment extends Fragment implements View.OnTouchListener {
 	}
 
 	public double getPercentWidth() {
-		return percentWidth;
+		return mPercentWidth;
 	}
 
 	public void setPercentWidth(double percentWidth) {
-		this.percentWidth = percentWidth;
+		this.mPercentWidth = percentWidth;
 	}
 
 	public double getPercentHeight() {
-		return percentHeight;
+		return mPercentHeight;
 	}
 
 	public void setPercentHeight(double percentHeight) {
-		this.percentHeight = percentHeight;
+		this.mPercentHeight = percentHeight;
 	}
 
 }
