@@ -4,7 +4,7 @@
 #### Simple setup
 ```java
 ImageTaggerFragment taggerFragment = new ImageTaggerFragment(R.layout.fragment_tagger);
-````
+```
 
 #### Define your own set of animations
 ```java
