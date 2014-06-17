@@ -5,7 +5,6 @@ import android.support.v4.app.FragmentActivity;
 
 public class ImageTagActivity extends FragmentActivity {
 	ImageTaggerFragment taggerFragment;
-	static boolean alreadyRun = false;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -22,7 +21,6 @@ public class ImageTagActivity extends FragmentActivity {
 //																																	R.anim.zoom_large,
 //																																	R.anim.zoom_normal);
 
-		if(!alreadyRun) {
 //	---- Custom tag event handling ----
 			taggerFragment = ImageTaggerFragment.newInstance(R.layout.fragment_tagger);
 //		{
@@ -36,12 +34,5 @@ public class ImageTagActivity extends FragmentActivity {
 			getSupportFragmentManager().beginTransaction()
 				.add(R.id.fragment_container, taggerFragment, "imageTaggerFragment")
 				.commit();
-
-			alreadyRun = true;
-		}
-//		taggerFragment.addTagFragment(100, 100, "One");
-//		taggerFragment.addTagFragment(200, 200, "Two");
-//		taggerFragment.addTagFragment(300, 300, "Three");
-//		taggerFragment.addTagFragment(400, 400, "Four");
 	}
 }

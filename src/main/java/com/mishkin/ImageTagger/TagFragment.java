@@ -67,20 +67,6 @@ public class TagFragment extends Fragment implements View.OnTouchListener {
 		return v;
 	}
 
-	public void setSelected(boolean selected) {
-		mSelected = selected;
-
-		if(mSelected) {
-			closeImageView.setVisibility(View.VISIBLE);
-		} else {
-			closeImageView.setVisibility(View.GONE);
-		}
-	}
-
-	public boolean getSelect() {
-		return mSelected;
-	}
-
 	@Override
 	public boolean onTouch(View v, MotionEvent event) {
 		switch (event.getAction()) {
@@ -98,6 +84,20 @@ public class TagFragment extends Fragment implements View.OnTouchListener {
 			return false;
 		}
 		return false;
+	}
+
+	public void setSelected(boolean selected) {
+		mSelected = selected;
+
+		if(mSelected) {
+			closeImageView.setVisibility(View.VISIBLE);
+		} else {
+			closeImageView.setVisibility(View.GONE);
+		}
+	}
+
+	public boolean getSelect() {
+		return mSelected;
 	}
 
 	public void setPosition(FrameLayout.LayoutParams layoutParams) {
