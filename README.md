@@ -8,7 +8,11 @@ ImageTaggerFragment taggerFragment = new ImageTaggerFragment(R.layout.fragment_t
 
 #### Define your own set of animations
 ```java
-ImageTaggerFragment taggerFragment = new ImageTaggerFragment(R.layout.fragment_tagger, R.anim.zoom_in, R.anim.zoom_out, R.anim.zoom_large, R.anim.zoom_normal);
+ImageTaggerFragment taggerFragment = new ImageTaggerFragment(R.layout.fragment_tagger, 
+  R.anim.zoom_in, // on tag created
+  R.anim.zoom_out, // on tag removed
+  R.anim.zoom_large, // on tag selected
+  R.anim.zoom_normal); // on tag deselsted
 ```
 
 #### Custom tag event handling
