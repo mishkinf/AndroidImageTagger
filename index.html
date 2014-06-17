@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="AndroidImageTagger : Android image and photo tagging" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>AndroidImageTagger</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/mishkinf/AndroidImageTagger">View on GitHub</a>
+
+          <h1 id="project_title">AndroidImageTagger</h1>
+          <h2 id="project_tagline">Android image and photo tagging</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/mishkinf/AndroidImageTagger/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/mishkinf/AndroidImageTagger/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a name="androidimagetagger" class="anchor" href="#androidimagetagger"><span class="octicon octicon-link"></span></a>AndroidImageTagger</h1>
+
+<hr><h5>
+<a name="this-code-is-an-example-of-tagging-images-in-android" class="anchor" href="#this-code-is-an-example-of-tagging-images-in-android"><span class="octicon octicon-link"></span></a>This code is an example of tagging images in Android.</h5>
+
+<h4>
+<a name="simple-setup" class="anchor" href="#simple-setup"><span class="octicon octicon-link"></span></a>Simple setup</h4>
+
+<div class="highlight highlight-java"><pre><span class="n">ImageTaggerFragment</span> <span class="n">taggerFragment</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">ImageTaggerFragment</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">fragment_tagger</span><span class="o">);</span>
+</pre></div>
+
+<h4>
+<a name="define-your-own-set-of-animations" class="anchor" href="#define-your-own-set-of-animations"><span class="octicon octicon-link"></span></a>Define your own set of animations</h4>
+
+<div class="highlight highlight-java"><pre><span class="n">ImageTaggerFragment</span> <span class="n">taggerFragment</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">ImageTaggerFragment</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">fragment_tagger</span><span class="o">,</span> 
+  <span class="n">R</span><span class="o">.</span><span class="na">anim</span><span class="o">.</span><span class="na">zoom_in</span><span class="o">,</span> <span class="c1">// on tag created</span>
+  <span class="n">R</span><span class="o">.</span><span class="na">anim</span><span class="o">.</span><span class="na">zoom_out</span><span class="o">,</span> <span class="c1">// on tag removed</span>
+  <span class="n">R</span><span class="o">.</span><span class="na">anim</span><span class="o">.</span><span class="na">zoom_large</span><span class="o">,</span> <span class="c1">// on tag selected</span>
+  <span class="n">R</span><span class="o">.</span><span class="na">anim</span><span class="o">.</span><span class="na">zoom_normal</span><span class="o">);</span> <span class="c1">// on tag deselsted</span>
+</pre></div>
+
+<h4>
+<a name="custom-tag-event-handling" class="anchor" href="#custom-tag-event-handling"><span class="octicon octicon-link"></span></a>Custom tag event handling</h4>
+
+<div class="highlight highlight-java"><pre><span class="n">taggerFragment</span> <span class="o">=</span> <span class="n">ImageTaggerFragment</span><span class="o">.</span><span class="na">newInstance</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">fragment_tagger</span><span class="o">);</span>
+<span class="o">{</span>
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">onTagEvent</span><span class="o">(</span><span class="n">TagFragment</span> <span class="n">tag</span><span class="o">,</span> <span class="n">String</span> <span class="n">tagEvent</span><span class="o">,</span> <span class="n">Object</span> <span class="n">data</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="kd">super</span><span class="o">.</span><span class="na">onTagEvent</span><span class="o">(</span><span class="n">tag</span><span class="o">,</span> <span class="n">tagEvent</span><span class="o">,</span> <span class="n">data</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">};</span>
+</pre></div>
+
+<h4>
+<a name="adding-tags" class="anchor" href="#adding-tags"><span class="octicon octicon-link"></span></a>Adding tags</h4>
+
+<div class="highlight highlight-java"><pre><span class="c1">// Method signature: addTagFragment(int xPos, int yPos, Object metaData)</span>
+<span class="n">taggerFragment</span><span class="o">.</span><span class="na">addTagFragment</span><span class="o">(</span><span class="mi">100</span><span class="o">,</span> <span class="mi">100</span><span class="o">,</span> <span class="s">"One"</span><span class="o">);</span>
+</pre></div>
+
+<h4>
+<a name="adding-your-fragments-using-androidsupportv4" class="anchor" href="#adding-your-fragments-using-androidsupportv4"><span class="octicon octicon-link"></span></a>Adding your fragments using android.support.v4.</h4>
+
+<div class="highlight highlight-java"><pre><span class="n">getSupportFragmentManager</span><span class="o">().</span><span class="na">beginTransaction</span><span class="o">()</span>
+  <span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">fragment_container</span><span class="o">,</span> <span class="n">taggerFragment</span><span class="o">,</span> <span class="s">"imageTaggerFragment"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">commit</span><span class="o">();</span>
+</pre></div>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">AndroidImageTagger maintained by <a href="https://github.com/mishkinf">mishkinf</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
